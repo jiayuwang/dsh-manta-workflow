@@ -25,7 +25,7 @@ Python 环境示例：
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install manim==0.18.1 manta-manim-theme==1.0.1 "setuptools<81"
+pip install manim==0.18.1 manta-manim-theme==1.0.1 "setuptools<81" pillow numpy
 ```
 
 ## 安装

@@ -111,8 +111,10 @@ def source_items(project: Path) -> list:
 def apply_prefilter(project: Path, items: dict) -> None:
     result = subprocess.run(
         [sys.executable, str(SCRIPT_ROOT / "scripts" / "prefilter.py"), "build"],
-        cwd=project, capture_output=True, text=True, check=True,
+        cwd=project, capture_output=True, text=True,
     )
+    if result.returncode != 0:
+        raise RuntimeError(f"图像预筛失败：{result.stderr.strip() or result.stdout.strip()}")
     prefilter = json.loads(result.stdout)
     by_file = {}
     for entry in prefilter["items"]:
