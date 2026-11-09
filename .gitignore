@@ -1,0 +1,9 @@
+node_modules/
+build/
+media/
+review/
+__pycache__/
+*.pyc
+*.tgz
+*.log
+.DS_Store

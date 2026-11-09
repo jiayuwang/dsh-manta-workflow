@@ -1,0 +1,5 @@
+# 发布补丁不包含任何本机路径。项目目录由用户的 profile patch 配置。
+- insert:
+    - id: manta-workflow
+      name: 'dsh-manta-workflow'
+      config: {}

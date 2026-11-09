@@ -1,0 +1,62 @@
+{
+  "name": "dsh-manta-workflow",
+  "version": "0.3.0",
+  "type": "module",
+  "description": "Manta-based scientific slide/video production workflow with multi-project visual review, image annotations and acceptance tracking.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiayuwang/dsh-manta-workflow.git"
+  },
+  "homepage": "https://github.com/jiayuwang/dsh-manta-workflow#readme",
+  "bugs": {
+    "url": "https://github.com/jiayuwang/dsh-manta-workflow/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "manim",
+    "manta",
+    "scientific-slides",
+    "visual-review"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "review-service.js",
+    "project-registry.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "skills/**/*",
+    "scripts/**/*",
+    "examples/**/*",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "pack:check": "npm pack --dry-run"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-slots", "@deepseek-ai/dsh-client-locale"]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-skill-filesystem": ">=0.1.0-rc.6",
+    "@deepseek-ai/schemastery": ">=3.18.0"
+  }
+}
